@@ -287,7 +287,7 @@ Languages:
         next_owned = None
         next_contrib = None
         
-        skip = ["TSQL", "CMake", "Makefile", "M4", "NSIS"]
+        skip = ["Batchfile", "CMake", "Makefile", "M4", "NSIS", "QMake", "Shell", "TSQL"]
         
         while True:
             raw_results = await self.queries.query(
