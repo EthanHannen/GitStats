@@ -286,6 +286,9 @@ Languages:
 
         next_owned = None
         next_contrib = None
+        
+        skip = ["TSQL", "CMake", "Makefile", "NSIS"]
+        
         while True:
             raw_results = await self.queries.query(
                 Queries.repos_overview(owned_cursor=next_owned,
@@ -330,6 +333,7 @@ Languages:
                     name = lang.get("node", {}).get("name", "Other")
                     languages = await self.languages
                     if name in self._exclude_langs: continue
+                    if name in skip: continue
                     if name in languages:
                         languages[name]["size"] += lang.get("size", 0)
                         languages[name]["occurrences"] += 1
